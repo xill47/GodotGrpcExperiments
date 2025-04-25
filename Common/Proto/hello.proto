@@ -1,0 +1,16 @@
+﻿syntax = "proto3";
+
+package godot_grpc_experiment.common.proto;
+
+service HelloService {
+  rpc Hello(HelloRequest) returns (HelloResponse);
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloResponse {
+  string greeting = 1;
+  uint64 unix_time = 2;
+}
