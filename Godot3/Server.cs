@@ -22,7 +22,7 @@ internal sealed class Server : Control
     [OnReady]
     private readonly RichTextLabel requestLabel = null!;
 
-    private HelloServiceCore helloServiceCore = null!;
+    private IProgress<HelloRequest> helloRequestProgress = null!;
 
     private Grpc.Core.Server? server;
 
@@ -30,8 +30,7 @@ internal sealed class Server : Control
     {
         ShowServerState(false);
 
-        helloServiceCore = new HelloServiceCore();
-        helloServiceCore.HelloRequest += HelloServiceCoreOnHelloRequest;
+        helloRequestProgress = new Progress<HelloRequest>(HelloServiceCoreOnHelloRequest);
 
         startServerButton.Connect("pressed", this, nameof(OnStartServerButtonPressed));
         stopServerButton.Connect("pressed", this, nameof(OnStopServerButtonPressed));
@@ -48,7 +47,7 @@ internal sealed class Server : Control
         var listenUri = new Uri(listenURIEdit.Text);
         server = new Grpc.Core.Server
         {
-            Services = { HelloService.BindService(helloServiceCore) },
+            Services = { HelloService.BindService(new HelloServiceCore(helloRequestProgress)) },
             Ports = { { listenUri.Host, listenUri.Port, ServerCredentials.Insecure } },
         };
         server.Start();

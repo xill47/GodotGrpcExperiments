@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://7df6m0t7l545"]
+
+[ext_resource type="PackedScene" uid="uid://w8v5tdy56thi" path="res://client.tscn" id="1_tyee0"]
+[ext_resource type="PackedScene" uid="uid://0oyrne4mf5ku" path="res://server.tscn" id="2_sq7ho"]
+
+[node name="MainWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Client" parent="TabContainer" instance=ExtResource("1_tyee0")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Server" parent="TabContainer" instance=ExtResource("2_sq7ho")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1

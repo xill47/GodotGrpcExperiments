@@ -5,11 +5,16 @@ namespace GodotGrpcExperiment.Common;
 
 public class HelloServiceCore : HelloService.HelloServiceBase
 {
-    public event Action<HelloRequest>? HelloRequest;
+    private readonly IProgress<HelloRequest> requestReporter;
+
+    public HelloServiceCore(IProgress<HelloRequest> requestReporter)
+    {
+        this.requestReporter = requestReporter;
+    }
 
     public override Task<HelloResponse> Hello(HelloRequest request, ServerCallContext context)
     {
-        HelloRequest?.Invoke(request);
+        requestReporter.Report(request);
         return Task.FromResult(
             new HelloResponse
             {
