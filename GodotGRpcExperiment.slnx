@@ -1,0 +1,13 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Godot3/">
+    <Project Path="Godot3/GodotGrpcExperiment.Godot3.csproj">
+      <BuildType Project="Debug" />
+    </Project>
+  </Folder>
+  <Project Path="Common/Common.csproj" />
+</Solution>

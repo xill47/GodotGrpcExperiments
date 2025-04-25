@@ -4,6 +4,11 @@ root = true
 [*]
 indent_style = space
 
+# ReSharper properties
+resharper_for_simple_types = use_var
+resharper_instance_members_qualify_declared_in = base_class
+resharper_max_attribute_length_for_same_line = 1
+
 # Xml files
 [*.xml]
 indent_size = 2
@@ -26,7 +31,6 @@ insert_final_newline = false
 # Organize usings
 dotnet_separate_import_directive_groups = true
 dotnet_sort_system_directives_first = true
-file_header_template = unset
 
 # this. and Me. preferences
 dotnet_style_qualification_for_event = false:silent

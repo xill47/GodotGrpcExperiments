@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
     <LangVersion>12</LangVersion>
@@ -9,7 +8,6 @@
     <AnalysisMode>Recommended</AnalysisMode>
     <RootNamespace>GodotGrpcExperiment.Common</RootNamespace>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.30.2" />
     <PackageReference Include="Grpc.Core" Version="2.46.6" />
@@ -18,9 +16,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-
   <ItemGroup>
     <Protobuf Include="Proto/hello.proto" />
   </ItemGroup>
-
 </Project>
